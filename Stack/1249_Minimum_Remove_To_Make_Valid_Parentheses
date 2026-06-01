@@ -1,3 +1,21 @@
+//LeetCode 1249
+Minimum Remove To Make valid Parentheses
+Difficulty - Medium
+
+Approach:
+Approach:
+1. Traverse the string from left to right.
+2. Store the indices of '(' in a stack.
+3. When ')' is found:
+   - If the stack is not empty, match it with the top '('.
+   - Otherwise, mark this ')' for removal.
+4. After traversal, any '(' left in the stack are unmatched,
+   so mark them for removal as well.
+5. Build the final string by skipping all marked indices.
+
+Time Complexity: O(n)
+Space Complexity: O(n)
+//
 class Solution {
 public:
     string minRemoveToMakeValid(string s) {
