@@ -1,0 +1,37 @@
+class Solution {
+public:
+    string minRemoveToMakeValid(string s) {
+        stack<int>st;//create stack to store indices of unmatched (
+
+        vector<bool>remove(s.size(),false);// create remove array
+
+        for(int i = 0;i<s.size();i++){//visit very character
+            if(s[i] =='('){//opening bracket->store its position
+
+                st.push(i);// push the opening bracket into the stack
+            }
+            else if (s[i] ==')'){//check whether a matching opening brackets exists
+
+                if(!st.empty()){//if found pop the opening bracket
+                    st.pop();//pair formed
+                }
+                else{// no match found
+                    remove[i] = true; // remove the (
+                }
+            }
+        }
+        while(!st.empty()){//any opening bracket left in stack is unmatched
+            remove[st.top()]= true;//remove it
+            st.pop();//pop it
+        }
+        string ans ="";
+        for(int i =0;i<s.size();i++){//traverse again
+
+            if(!remove[i]){// character is not found
+                ans+=s[i];//answer
+            }
+        }
+        return ans;// return the final answer
+
+    }
+};
