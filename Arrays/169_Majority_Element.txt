@@ -1,0 +1,40 @@
+//
+LeetCode 169 - Majority Element
+Difficulty: Easy
+
+Approach:
+1. Use Boyer-Moore Voting Algorithm.
+2. Maintain a candidate and a count.
+3. If count becomes 0, choose the current element as the candidate.
+4. If the current element matches the candidate, increment count.
+5. Otherwise, decrement count.
+6. At the end, the candidate is the majority element.
+
+Time Complexity: O(n)
+Space Complexity: O(1)
+
+//Boyer-Moore Voting algorithm,
+
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        
+
+        int candidate=0;// intially
+        int count=0;//initially
+
+        for(int num:nums){//visit every element
+            if(count==0){//current candidate has lost all values 
+                candidate = num;//choose a new candidate
+            }
+            if(num == candidate){// if the element is equal to the candidate
+                count++;// increase the count
+            }
+            else{
+                count--;// else decrease the count
+            }
+        }
+        return candidate;// return the candidate as final answer 
+        // here the majority element and the other element cancel each other and the majority elemnt occurs more and often survives at the end 
+    }
+};
