@@ -25,7 +25,7 @@
 // 1 → 1 + 2 → 1 + 2 + 3 = 6
 
 // Starting from 6:
-// 6 is not present
+// 6 is not p
 
 // Answer = 6
 // ```
